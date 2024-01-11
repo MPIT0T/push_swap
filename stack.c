@@ -6,20 +6,20 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:26:20 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/09 17:22:15 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/10 16:07:22 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_checktab(char **tab)
+int		ft_checktab(char **tab, size_t n)
 {
 	long	num;
 	size_t	i;
 	size_t	j;
 
 	i = 0;
-	while (tab[i])
+	while (i < n)
 	{
 		j = 0;
 		if (tab[i][j] == '-')
@@ -37,7 +37,6 @@ int		ft_checktab(char **tab)
 	}
 	return (0);
 }
-/*
 
 size_t	ft_tabsize(char **tab)
 {
@@ -51,30 +50,47 @@ size_t	ft_tabsize(char **tab)
 
 void	ft_fill_lst(char **tab, t_list *lst)
 {
-	int		n;
+	size_t	i;
+	int		tmp;
 
-	n = ft_atoi(tab[0]);
-
+	i = 0;
+	tmp = ft_atoi(tab[i++]);
+	lst = ft_lstnew((void *) &tmp);
+	while (tab[i])
+	{
+		tmp = ft_atoi(tab[i++]);
+		ft_lstadd_back(&lst, ft_lstnew((void *) &tmp));
+	}
 }
 
-t_stack	ft_init_stack_a(char *str)
+t_stack	ft_init_1arg(char *str)
 {
 	char	**tab;
 	t_stack	a;
-	int		status;
 
 	tab = ft_split(str, ' ');
 	if (!tab)
 		exit(1);
-	if (ft_checktab(tab))
+	if (ft_checktab(tab, ft_tabsize(tab)))
 	{
 		free(tab);
 		exit(1);
 	}
+	a.top = NULL;
 	ft_fill_lst(tab, a.top);
-
 	a.size = ft_tabsize(tab);
-
-
+	free(tab);
 	return (a);
-}*/
+}
+
+t_stack	ft_init_narg(char **tab, size_t n)
+{
+	t_stack	a;
+	if (ft_checktab(tab, n))
+		exit(1);
+	a.top = NULL;
+	ft_fill_lst(tab, a.top);
+	a.size = n;
+	free(tab);
+	return (a);
+}

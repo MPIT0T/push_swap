@@ -35,7 +35,7 @@ all		:	${NAME}
 	${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}	:	${OBJS} Makefile
-	make -C ./libft
+	make bonus -C ./libft
 	make -C ./printf
 	${CC} ${FLAGS} -o ${NAME} ${OBJS} -L./libft -lft -L./printf -lftprintf
 
