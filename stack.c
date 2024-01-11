@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:26:20 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/10 16:07:22 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/11 16:31:47 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,18 @@ size_t	ft_tabsize(char **tab)
 	return (i);
 }
 
-void	ft_fill_lst(char **tab, t_list *lst)
+void	ft_fill_lst(char **tab, t_stack a)
 {
 	size_t	i;
 	int		tmp;
 
 	i = 0;
 	tmp = ft_atoi(tab[i++]);
-	lst = ft_lstnew((void *) &tmp);
-	while (tab[i])
+	a.top = ft_lstnew((void *) &tmp);
+	while (i < a.size)
 	{
 		tmp = ft_atoi(tab[i++]);
-		ft_lstadd_back(&lst, ft_lstnew((void *) &tmp));
+		ft_lstadd_back(&a.top, ft_lstnew((void *) &tmp));
 	}
 }
 
@@ -77,8 +77,8 @@ t_stack	ft_init_1arg(char *str)
 		exit(1);
 	}
 	a.top = NULL;
-	ft_fill_lst(tab, a.top);
 	a.size = ft_tabsize(tab);
+	ft_fill_lst(tab, a);
 	free(tab);
 	return (a);
 }
@@ -86,11 +86,11 @@ t_stack	ft_init_1arg(char *str)
 t_stack	ft_init_narg(char **tab, size_t n)
 {
 	t_stack	a;
+
 	if (ft_checktab(tab, n))
 		exit(1);
 	a.top = NULL;
-	ft_fill_lst(tab, a.top);
 	a.size = n;
-	free(tab);
+	ft_fill_lst(tab, a);
 	return (a);
 }

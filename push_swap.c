@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:21:09 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/11 11:39:51 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/11 16:28:41 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,23 @@ int		main(int argc, char **argv)
 	{
 		a = ft_init_narg(&argv[1], argc - 1);
 	}
-	ft_printf("%d", a.top->content);
-	ft_printf("%d", a.top->next->content);
-	ft_printf("%d", a.top->next->next->content);
+	ft_printf("%d", *(int *) a.top->content);
+	ft_printf("%d", *(int *) a.top->next->content);
+	ft_printf("%d", *(int *) a.top->next->next->content);
 	return (0);
 }
+
+/*
+
+int		main(void)
+{
+	t_stack	a;
+	int x = 3;
+	int y = 2;
+
+	a.size = 2;
+	a.top = ft_lstnew((void *) &x);
+	ft_lstadd_back(&a.top, ft_lstnew((void *) &y));
+	ft_printf("%d", *(int *) a.top->next->content);
+}
+*/
