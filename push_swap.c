@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:21:09 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/11 16:28:41 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/15 17:44:55 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		main(int argc, char **argv)
 {
-	t_stack	a;
+	t_stack	*a;
 	//t_stack	b;
 
 	if (argc == 2)
@@ -26,9 +26,9 @@ int		main(int argc, char **argv)
 	{
 		a = ft_init_narg(&argv[1], argc - 1);
 	}
-	ft_printf("%d", *(int *) a.top->content);
-	ft_printf("%d", *(int *) a.top->next->content);
-	ft_printf("%d", *(int *) a.top->next->next->content);
+	ft_printf("%d\n", a->value);
+	ft_printf("%d\n", a->next->value);
+	ft_printf("%d\n", a->next->next->value);
 	return (0);
 }
 

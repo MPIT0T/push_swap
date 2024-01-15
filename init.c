@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:26:20 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/11 16:31:47 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/15 17:43:35 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,51 +48,49 @@ size_t	ft_tabsize(char **tab)
 	return (i);
 }
 
-void	ft_fill_lst(char **tab, t_stack *a)
+void	ft_fill_stack(char **tab, t_stack **a, size_t n)
 {
 	size_t i;
 	int tmp;
 
 	i = 0;
 	tmp = ft_atoi(tab[i++]);
-	a = ft_newelem(tmp);
-	if (!a)
+	*a = ft_newelem(tmp);
+	if (!(*a))
 		return;
-	while (tab[i])
+	while (i < n)
 	{
 		tmp = ft_atoi(tab[i++]);
-		ft_lstadd_back(&a.top, ft_lstnew((void *) &tmp));
+		ft_stackadd_back(a, ft_newelem(tmp));
 	}
 }
 
-t_stack	ft_init_1arg(char *str)
+t_stack	*ft_init_1arg(char *str)
 {
-	char	**tab;	int				totalsize;
-	t_stack	a;
+	char	**tab;
+	t_stack	*a;
+	size_t	n;
 
 	tab = ft_split(str, ' ');
 	if (!tab)
 		exit(1);
-	if (ft_checktab(tab, ft_tabsize(tab)))
+	n = ft_tabsize(tab);
+	if (ft_checktab(tab, n))
 	{
 		free(tab);
 		exit(1);
 	}
-	a.top = NULL;
-	a.size = ft_tabsize(tab);
-	ft_fill_lst(tab, &a);
+	ft_fill_stack(tab, &a, n);
 	free(tab);
 	return (a);
 }
 
-t_stack	ft_init_narg(char **tab, size_t n)
+t_stack	*ft_init_narg(char **tab, size_t n)
 {
-	t_stack	a;
+	t_stack	*a;
 
 	if (ft_checktab(tab, n))
 		exit(1);
-	a.top = NULL;
-	a.size = n;
-	ft_fill_lst(tab, &a);
+	ft_fill_stack(tab, &a, n);
 	return (a);
 }

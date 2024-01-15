@@ -12,47 +12,47 @@
 
 #include "push_swap.h"
 
-void	sa(t_stack a)
+void	sa(t_stack **a)
 {
-	void	*tmp;
+	int		tmp;
 
-	if (a.top || a.top->next)
+	if (a != NULL && (*a)->next != NULL)
 	{
-		tmp = a.top->content;
-		a.top->content = a.top->next->content;
-		a.top->next->content = tmp;
+		tmp = (*a)->value;
+		(*a)->value = (*a)->next->value;
+		(*a)->next->value = tmp;
 	}
 	ft_printf("sa");
 }
 
-void	sb(t_stack b)
+void	sb(t_stack **b)
 {
-	void	*tmp;
+	int		tmp;
 
-	if (b.top && b.top->next)
+	if (b != NULL && (*b)->next != NULL)
 	{
-		tmp = b.top->content;
-		b.top->content = b.top->next->content;
-		b.top->next->content = tmp;
+		tmp = (*b)->value;
+		(*b)->value = (*b)->next->value;
+		(*b)->next->value = tmp;
 	}
 	ft_printf("sb");
 }
 
-void	ss(t_stack a, t_stack b)
+void	ss(t_stack **a, t_stack **b)
 {
-	void	*tmp;
+	int		tmp;
 
-	if (a.top && a.top->next)
+	if (a != NULL && (*a)->next != NULL)
 	{
-		tmp = a.top->content;
-		a.top->content = a.top->next->content;
-		a.top->next->content = tmp;
+		tmp = (*a)->value;
+		(*a)->value = (*a)->next->value;
+		(*a)->next->value = tmp;
 	}
-	if (b.top && b.top->next)
+	if (b != NULL && (*b)->next != NULL)
 	{
-		tmp = b.top->content;
-		b.top->content = b.top->next->content;
-		b.top->next->content = tmp;
+		tmp = (*b)->value;
+		(*b)->value = (*b)->next->value;
+		(*b)->next->value = tmp;
 	}
 	ft_printf("ss");
 }
