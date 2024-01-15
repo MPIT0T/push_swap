@@ -1,39 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   t_stack.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 09:23:40 by mpitot            #+#    #+#             */
+/*   Created: 2024/01/15 17:06:11 by mpitot            #+#    #+#             */
 /*   Updated: 2024/01/15 17:06:52 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_PUSH_SWAP_H
-# define PUSH_SWAP_PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "../libft/libft.h"
-# include "../printf/ft_printf.h"
-# include <limits.h>
-
-typedef struct s_stack
+t_stack	*ft_stacklast(t_stack *stack)
 {
-	int				value;
-	int				state;
-	struct s_stack	*next;
-} t_stack;
+	int		i;
 
+	if (!stack)
+		return (NULL);
+	i = 1;
+	while (stack->next)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (stack);
+}
 
+t_stack	*ft_newelem(int value)
+{
+	t_stack	*node;
 
+	node = malloc(sizeof(t_stack));
+	if (!node)
+		return (NULL);
+	node->value = value;
+	node->state = 0;
+	node->next = NULL;
+	return (node);
+}
 
-long	ft_atol(const char *nptr);
+void	ft_stackadd_back(t_stack **stack, t_stack *new)
+{
+	t_stack	*last;
 
-int		ft_checktab(char **tab, size_t n);
-t_stack	ft_init_narg(char **tab, size_t n);
-t_stack	ft_init_1arg(char *str);
-
-t_stack	*ft_stacklast(t_stack *stack);
-t_stack	*ft_newelem(int value);
-void	ft_stackadd_back(t_stack **stack, t_stack *new);
-#endif
+	if (*stack)
+	{
+		last = ft_stacklast(*stack);
+		last->next = new;
+	}
+	else
+		*stack = new;
+}

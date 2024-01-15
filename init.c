@@ -48,15 +48,17 @@ size_t	ft_tabsize(char **tab)
 	return (i);
 }
 
-void	ft_fill_lst(char **tab, t_stack a)
+void	ft_fill_lst(char **tab, t_stack *a)
 {
-	size_t	i;
-	int		tmp;
+	size_t i;
+	int tmp;
 
 	i = 0;
 	tmp = ft_atoi(tab[i++]);
-	a.top = ft_lstnew((void *) &tmp);
-	while (i < a.size)
+	a = ft_newelem(tmp);
+	if (!a)
+		return;
+	while (tab[i])
 	{
 		tmp = ft_atoi(tab[i++]);
 		ft_lstadd_back(&a.top, ft_lstnew((void *) &tmp));
@@ -65,7 +67,7 @@ void	ft_fill_lst(char **tab, t_stack a)
 
 t_stack	ft_init_1arg(char *str)
 {
-	char	**tab;
+	char	**tab;	int				totalsize;
 	t_stack	a;
 
 	tab = ft_split(str, ' ');
@@ -78,7 +80,7 @@ t_stack	ft_init_1arg(char *str)
 	}
 	a.top = NULL;
 	a.size = ft_tabsize(tab);
-	ft_fill_lst(tab, a);
+	ft_fill_lst(tab, &a);
 	free(tab);
 	return (a);
 }
@@ -91,6 +93,6 @@ t_stack	ft_init_narg(char **tab, size_t n)
 		exit(1);
 	a.top = NULL;
 	a.size = n;
-	ft_fill_lst(tab, a);
+	ft_fill_lst(tab, &a);
 	return (a);
 }
