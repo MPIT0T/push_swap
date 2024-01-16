@@ -6,15 +6,18 @@
 #    By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 12:46:44 by mpitot            #+#    #+#              #
-#    Updated: 2024/01/15 17:06:52 by mpitot           ###   ########.fr        #
+#    Updated: 2024/01/16 14:00:07 by mpitot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	push_swap.c	\
-rule_swap.c	\
-ft_atol.c	\
-init.c		\
-t_stack.c
+rule_swap.c				\
+ft_atol.c				\
+init.c					\
+t_stack.c				\
+rule_push.c				\
+rule_rotate.c			\
+rule_reverse_rotate.c
 
 OBJS	=	$(SRCS:.c=.o)
 

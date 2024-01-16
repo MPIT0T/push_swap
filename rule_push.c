@@ -6,19 +6,36 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:59:10 by mpitot            #+#    #+#             */
-/*   Updated: 2023/12/23 19:51:52 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/16 13:41:41 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-int	pop(t_stack s)
+void	pa(t_stack **a, t_stack **b)
 {
-	int		res;
+	t_stack	*tmp;
 
-	res = s.stack[0];
-	ft_memmove(s.stack, &s.stack[1], --s.size);
-	return (res);
+	if ((*b) != NULL)
+	{
+		tmp = (*b);
+		(*b) = (*b)->next;
+		tmp->next = (*a);
+		(*a) = tmp;
+	}
+	ft_printf("pa\n");
 }
 
-void	pa()
+void	pb(t_stack **a, t_stack **b)
+{
+	t_stack	*tmp;
+
+	if ((*a) != NULL)
+	{
+		tmp = (*a);
+		(*a) = (*a)->next;
+		tmp->next = (*b);
+		(*b) = tmp;
+	}
+	ft_printf("pb\n");
+}
