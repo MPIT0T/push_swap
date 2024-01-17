@@ -6,7 +6,7 @@
 #    By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 12:46:44 by mpitot            #+#    #+#              #
-#    Updated: 2024/01/16 14:00:07 by mpitot           ###   ########.fr        #
+#    Updated: 2024/01/17 15:56:08 by mpitot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,10 @@ init.c					\
 t_stack.c				\
 rule_push.c				\
 rule_rotate.c			\
-rule_reverse_rotate.c
+rule_reverse_rotate.c	\
+sort.c					\
+check.c					\
+ft_strcmp.c
 
 OBJS	=	$(SRCS:.c=.o)
 

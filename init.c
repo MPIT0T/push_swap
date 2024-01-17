@@ -12,32 +12,6 @@
 
 #include "push_swap.h"
 
-int		ft_checktab(char **tab, size_t n)
-{
-	long	num;
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	while (i < n)
-	{
-		j = 0;
-		if (tab[i][j] == '-')
-			j++;
-		while (tab[i][j])
-		{
-			if (!ft_isdigit(tab[i][j]))
-				return (1);
-			j++;
-		}
-		num = ft_atol(tab[i]);
-		if (num > (long) INT_MAX || num < (long) INT_MIN)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
 size_t	ft_tabsize(char **tab)
 {
 	size_t	i;

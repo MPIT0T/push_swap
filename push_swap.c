@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:21:09 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/16 17:01:38 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/17 16:56:24 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_print(t_stack **a, t_stack **b)
 int		main(int argc, char **argv)
 {
 	t_stack	*a;
-	t_stack	*b;
+	//t_stack	*b;
 
 	if (argc == 2)
 	{
@@ -49,24 +49,8 @@ int		main(int argc, char **argv)
 	{
 		a = ft_init_narg(&argv[1], argc - 1);
 	}
-	b = NULL;
-	ft_print(&a, &b);
-
-	sa(&a);
-	ft_print(&a, &b);
-
-	pb(&a, &b);
-	pb(&a, &b);
-	pb(&a, &b);
-	pb(&a, &b);
-	ft_print(&a, &b);
-
-	rr(&a, &b);
-	ft_print(&a, &b);
-
-	rrr(&a, &b);
-	ft_print(&a, &b);
-
+	//b = NULL;
+	ft_printf("%d", ft_is_sort(a, 'b'));
 	return (0);
 }
 
