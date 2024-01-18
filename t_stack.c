@@ -27,6 +27,19 @@ t_stack	*ft_stacklast(t_stack *stack)
 	return (stack);
 }
 
+size_t	ft_stacklen(t_stack *stack)
+{
+	size_t	count;
+
+	count = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		count++;
+	}
+	return (count);
+}
+
 t_stack	*ft_newelem(int value)
 {
 	t_stack	*node;

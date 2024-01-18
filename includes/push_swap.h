@@ -64,6 +64,7 @@ t_stack	*ft_init_1arg(char *str);
 t_stack	*ft_stacklast(t_stack *stack);
 t_stack	*ft_newelem(int value);
 void	ft_stackadd_back(t_stack **stack, t_stack *new);
+size_t	ft_stacklen(t_stack *stack);
 
 
 int		ft_is_sort(t_stack *stack, char which);
