@@ -6,11 +6,18 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:06:11 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/15 17:06:52 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/19 15:49:33 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_free_stack(t_stack **a)
+{
+	if ((*a)->next)
+		ft_free_stack(&(*a)->next);
+	free((*a));
+}
 
 t_stack	*ft_stacklast(t_stack *stack)
 {
@@ -49,6 +56,7 @@ t_stack	*ft_newelem(int value)
 		return (NULL);
 	node->value = value;
 	node->state = 0;
+	node->rank = -1;
 	node->next = NULL;
 	return (node);
 }

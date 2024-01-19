@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:21:09 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/18 18:16:16 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/19 18:46:07 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 void	ft_print(t_stack *a, t_stack *b)
 {
-	ft_printf("\na\n");
+	ft_printf("\n=A=\n");
 	while (a)
 	{
 		ft_printf("%d\n", a->value);
 		a = a->next;
 	}
-	ft_printf("\nb\n");
+	ft_printf("\n=B=\n");
 	while (b)
 	{
 		ft_printf("%d\n", b->value);
@@ -46,18 +46,9 @@ int		main(int argc, char **argv)
 		a = ft_init_narg(&argv[1], argc - 1);
 	b = NULL;
 	ft_print(a, b);
+	if (!ft_is_sort(a, 0, ft_get_rank(a)))
+		ft_sort(&a, &b, 0, ft_get_rank(a));
+	ft_print(a, b);
+	//ft_printf("%d", ft_is_sort(a, 0, ft_get_rank(a)));
 	return (0);
 }
-
-/*int main(int argc, char **argv)
-{
-	(void) argc;
-	char	**tab;
-
-	tab = ft_split(argv[1], ' ');
-	size_t	i = 0;
-	while (tab[i])
-		ft_printf("%s\n", tab[i++]);
-	ft_printf("%s\n", tab[i]);
-	return (0);
-}*/

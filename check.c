@@ -12,6 +12,16 @@
 
 #include "push_swap.h"
 
+size_t	ft_tabsize(char **tab)
+{
+	size_t	i;
+
+	i = 0;
+	while (tab[i])
+		i++;
+	return (i);
+}
+
 int		ft_is_in_tab(char **tab, size_t n, char *elem)
 {
 	size_t	i;

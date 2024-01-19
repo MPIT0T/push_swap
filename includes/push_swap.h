@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:23:40 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/17 16:16:22 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/19 17:49:13 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ typedef struct s_stack
 {
 	int				value;
 	int				state;
+	size_t			rank;
 	struct s_stack	*next;
 } t_stack;
 
 /*******************/
-/*******RULES*******/
+/***    RULES    ***/
 /*******************/
 
 /*swap*/
@@ -47,9 +48,9 @@ void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 
-/**/
-/**/
-/**/
+/*******************/
+/***             ***/
+/*******************/
 
 /*FTs*/
 long	ft_atol(const char *nptr);
@@ -57,6 +58,7 @@ int	ft_strcmp(const char *s1, const char *s2);
 
 /*create the stacks*/
 int		ft_checktab(char **tab, size_t n);
+size_t	ft_tabsize(char **tab);
 t_stack	*ft_init_narg(char **tab, size_t n);
 t_stack	*ft_init_1arg(char *str);
 
@@ -65,7 +67,18 @@ t_stack	*ft_stacklast(t_stack *stack);
 t_stack	*ft_newelem(int value);
 void	ft_stackadd_back(t_stack **stack, t_stack *new);
 size_t	ft_stacklen(t_stack *stack);
+void	ft_free_stack(t_stack **a);
+
+/*sorting*/
+int		ft_is_sort(t_stack *stack, size_t min, size_t max);
+void	ft_step(t_stack **a, t_stack **b, size_t pivot);
+void	ft_sort(t_stack **a, t_stack **b, size_t min, size_t max);
+size_t	ft_get_rank(t_stack *stack);
 
 
-int		ft_is_sort(t_stack *stack, char which);
+
+
+
+void	ft_print(t_stack *a, t_stack *b);
+
 #endif
