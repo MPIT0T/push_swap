@@ -20,7 +20,8 @@ rule_rotate.c			\
 rule_reverse_rotate.c	\
 sort.c					\
 check.c					\
-ft_strcmp.c
+ft_strcmp.c				\
+rule_chooser.c
 
 OBJS	=	$(SRCS:.c=.o)
 
