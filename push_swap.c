@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:21:09 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/20 17:56:50 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/22 18:30:21 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,16 @@ int		main(int argc, char **argv)
 	if (argc < 2)
 	{
 		ft_printf("Error\n");
-		return (0);
+		return (1);
 	}
 	if (argc == 2)
 		a = ft_init_1arg(argv[1]);
 	else
 		a = ft_init_narg(&argv[1], argc - 1);
 	b = NULL;
-	//ft_print(a, b);
 	if (!ft_is_sort(a, 'a'))
-		ft_sort(&a, &b, 0, ft_get_rank(a));
-	//ft_print(a, b);
-//	(void) b;
-//	ft_printf("%d", ft_is_pivot_sorted(a, 1));
+		ft_quicksort(&a, &b, 0, ft_get_rank(a));
+	ft_free_stack(&a);
+	ft_free_stack(&b);
 	return (0);
 }

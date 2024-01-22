@@ -24,7 +24,7 @@ static int	ft_checker(char c)
 long	ft_atol(const char *nptr)
 {
 	unsigned int	i;
-	long				value;
+	long			value;
 	int				sign;
 
 	i = 0;

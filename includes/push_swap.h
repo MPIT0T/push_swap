@@ -71,8 +71,8 @@ void	ft_free_stack(t_stack **a);
 
 /*sorting*/
 int		ft_is_sort(t_stack *stack, char which);
-void	ft_step(t_stack **a, t_stack **b, size_t pivot);
-void	ft_sort(t_stack **a, t_stack **b, size_t min, size_t max);
+void	ft_step_quicksort(t_stack **a, t_stack **b, size_t pivot);
+void	ft_quicksort(t_stack **a, t_stack **b, size_t min, size_t max);
 int		ft_is_pivot_sorted(t_stack *stack, size_t pivot);
 size_t	ft_get_rank(t_stack *stack);
 

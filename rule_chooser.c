@@ -24,7 +24,7 @@ void	ft_put_pivot_down(t_stack **a, size_t	elem_rank)
 		tmp = tmp->next;
 		elem_i++;
 	}
-	if (elem_i < ft_stacklen(*a) - 1)
+	if (elem_i < (ft_stacklen(*a) / 2) - 1)
 	{
 		while ((ft_stacklast(*a))->rank != elem_rank)
 			ra(a);

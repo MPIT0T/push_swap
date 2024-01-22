@@ -14,6 +14,8 @@
 
 void	ft_free_stack(t_stack **a)
 {
+	if (!(*a))
+		return ;
 	if ((*a)->next)
 		ft_free_stack(&(*a)->next);
 	free((*a));

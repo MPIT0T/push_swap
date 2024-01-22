@@ -70,7 +70,7 @@ t_stack	*ft_init_1arg(char *str)
 
 	tab = ft_split(str, ' ');
 	if (!tab)
-		exit(1);
+		exit(1);		//TODO
 	n = ft_tabsize(tab);
 	if (ft_checktab(tab, n))
 	{
