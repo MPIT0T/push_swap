@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:21:09 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/23 19:30:19 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/23 19:31:32 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_print(t_stack *a, t_stack *b)
 	ft_printf("\n");
 }
 
-int		main(int argc, char **argv)
+int		main(int argc, char **argv)		//TODO refaire le makefile (header)
 {
 	t_stack	*a;
 	t_stack	*b;
