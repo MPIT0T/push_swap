@@ -6,11 +6,25 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:55:36 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/17 16:05:24 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/23 19:16:54 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+size_t	ft_get_rank(t_stack *stack)
+{
+	size_t	rank;
+
+	rank = 0;
+	while (stack)
+	{
+		if (stack->rank > rank)
+			rank = stack->rank;
+		stack = stack->next;
+	}
+	return (rank);
+}
 
 size_t	ft_tabsize(char **tab)
 {
@@ -62,4 +76,19 @@ int		ft_checktab(char **tab, size_t n)
 		i++;
 	}
 	return (0);
+}
+
+int		ft_is_sort(t_stack *stack)
+{
+	int		prev;
+
+	prev = INT_MIN;
+	while (stack)
+	{
+		if (stack->value < prev)
+			return (0);
+		prev = stack->value;
+		stack = stack->next;
+	}
+	return (1);
 }

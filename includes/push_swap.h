@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:23:40 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/20 17:55:51 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/23 20:23:50 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,18 +70,13 @@ size_t	ft_stacklen(t_stack *stack);
 void	ft_free_stack(t_stack **a);
 
 /*sorting*/
-int		ft_is_sort(t_stack *stack, char which);
-void	ft_step_quicksort(t_stack **a, t_stack **b, size_t pivot);
-void	ft_quicksort(t_stack **a, t_stack **b, size_t min, size_t max);
-int		ft_is_pivot_sorted(t_stack *stack, size_t pivot);
-size_t	ft_get_rank(t_stack *stack);
+int		ft_is_sort(t_stack *stack);
 
-/*optimization*/
-void	ft_put_pivot_down(t_stack **a, size_t	elem_rank);
-void	ft_put_big_up(t_stack **b);
-
-
-
+void	ft_cost_sort(t_stack **a, t_stack **b);
+void	ft_step(t_stack **a, t_stack **b, int cheapest);
+int		ft_cheapest(t_stack *a, t_stack *b);
+int		ft_get_next_to(t_stack *b, int num);
+void	ft_rotate_a(t_stack **a, int cheapest);
 
 void	ft_print(t_stack *a, t_stack *b);
 

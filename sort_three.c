@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rule_push.c                                        :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 09:59:10 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/16 13:41:41 by mpitot           ###   ########.fr       */
+/*   Created: 2024/01/23 18:57:34 by mpitot            #+#    #+#             */
+/*   Updated: 2024/01/23 19:05:43 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "push_swap.h"
+/*
 
-void	pa(t_stack **a, t_stack **b)
+void	ft_sort_three(t_stack **a)
 {
-	t_stack	*tmp;
-
-	if ((*b) != NULL)
+	if ((*a)->value > (*a)->next->value)
 	{
-		tmp = (*b);
-		(*b) = (*b)->next;
-		tmp->next = (*a);
-		(*a) = tmp;
-		ft_printf("pa\n");
+		if ((*a)->next->value > (*a)->next->next->value)
+			return (sa(a), rra(a));
+		else
+			return (ra(a));
 	}
-}
-
-void	pb(t_stack **a, t_stack **b)
-{
-	t_stack	*tmp;
-
-	if ((*a) != NULL)
+	else
 	{
-		tmp = (*a);
-		(*a) = (*a)->next;
-		tmp->next = (*b);
-		(*b) = tmp;
-		ft_printf("pb\n");
+		if ((*a)->value > (*a)->next->next->value)
+			return (rra(a));
+		else
+			return (sa(a), ra(a));
 	}
-}
+}*/

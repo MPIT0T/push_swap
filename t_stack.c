@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:06:11 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/19 15:49:33 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/23 14:34:55 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ t_stack	*ft_stacklast(t_stack *stack)
 
 size_t	ft_stacklen(t_stack *stack)
 {
-	size_t	count;
+	size_t	i;
 
-	count = 0;
+	i = 0;
 	while (stack)
 	{
 		stack = stack->next;
-		count++;
+		i++;
 	}
-	return (count);
+	return (i);
 }
 
 t_stack	*ft_newelem(int value)

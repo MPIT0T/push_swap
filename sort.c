@@ -5,212 +5,101 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 15:45:31 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/22 20:03:40 by mpitot           ###   ########.fr       */
+/*   Created: 2024/01/23 15:31:38 by mpitot            #+#    #+#             */
+/*   Updated: 2024/01/23 20:38:17 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_is_sort(t_stack *stack, char which)
+int		ft_find_smallest(t_stack *a)
 {
-	size_t	i;
+	int		smallest;
 
-	if (which == 'a')
-	{
-		i = 0;
-		while (stack)
-		{
-			if (stack->rank != i)
-				return (0);
-			i++;
-			stack = stack->next;
-		}
-	}
-	else
-	{
-		i = ft_get_rank(stack);
-		while (stack)
-		{
-			if (stack->rank != i)
-				return (0);
-			i--;
-			stack = stack->next;
-		}
-	}
-	return (1);
-}
-
-int		ft_is_pivot_sorted(t_stack *stack, size_t pivot)
-{
-	while (stack->rank != pivot)
-	{
-		if (stack->rank > pivot)
-			return (0);
-		stack = stack->next;
-	}
-	stack = stack->next;
-	while (stack)
-	{
-		if (stack->rank < pivot)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
-
-size_t	ft_get_rank(t_stack *stack)
-{
-	size_t	rank;
-
-	rank = 0;
-	while (stack)
-	{
-		if (stack->rank > rank)
-			rank = stack->rank;
-		stack = stack->next;
-	}
-	return (rank);
-}
-
-
-size_t	ft_rotate_count(t_stack *a, size_t num)
-{
-	size_t	i;
-
-	i = 0;
-	while (a->rank != num)
-	{
-		a = a->next;
-		i++;
-	}
-	if (i < ft_stacklen(a) / 2)
-		return (i);
-	else
-		return (ft_stacklen(a) - i);
-}
-
-size_t	ft_place_count(t_stack *a, size_t num)
-{
-	size_t	i;
-
-	i = 0;
+	smallest = INT_MAX;
 	while (a)
 	{
-		if (a->rank > num)
-			break ;
+		if (a->value < smallest)
+			smallest = a->value;
 		a = a->next;
-		i++;
 	}
-	if (i < ft_stacklen(a) / 2)
-		return (i);
-	else
-		return (ft_stacklen(a) - i);
+	return (smallest);
 }
 
-size_t	ft_cheapest(t_stack *a, t_stack *b)
+int		ft_get_position(t_stack *a, int num)
 {
-	size_t	cheapest;
-	size_t	sm_count;
-	size_t	cur_count;
+	int		next_to;
+	int		biggest;
+	int		smallest;
 
-	sm_count = SIZE_MAX;
+	next_to = INT_MAX;
+	biggest = INT_MIN;
+	smallest = INT_MAX;
 	while (a)
 	{
-		cur_count = ft_rotate_count(a, a->rank) + ft_place_count(a, a->rank) + 1;
-		if (cur_count <= sm_count)
-			cheapest = a->rank;
+		if (a->value > biggest)
+			biggest = a->value;
+		if (a->value < next_to && a->value > num)
+			next_to = a->value;
+		if (a->value < smallest)
+			smallest = a->value;
 		a = a->next;
 	}
-	return (cheapest);
+	if (num > biggest)
+		return (smallest);
+	return (next_to);
 }
 
-void	ft_put_on_top(t_stack **a, size_t num)
+void	ft_push_back(t_stack **a, t_stack **b)
 {
-	size_t	i;
+	int		next_to;
 
-	i = 0;
-	while ((*a)->rank != num)
+	while ((*b))
 	{
-		(*a) = (*a)->next;
-		i++;
-	}
-	if (i < ft_stacklen(*a) / 2)
-	{
-		while ((*a)->rank != num)
-			ra(a);
-	}
-	else
-	{
-		while ((*a)->rank != num)
+		next_to = ft_get_position(*a, (*b)->value);
+		while ((*a)->value != next_to)
 			rra(a);
+		pa(a, b);
 	}
 }
 
-void	ft_push_n_place(t_stack **a, t_stack **b, size_t num)
+void	ft_sort_three(t_stack **a)
 {
-	ft_put_on_top(a, num);
-	ft_place_b()
-	pb(a, b);
+	if (ft_is_sort(*a))
+		return ;
+	if ((*a)->value > (*a)->next->value)
+	{
+		if ((*a)->next->value > (*a)->next->next->value)
+			return (sa(a), rra(a));
+		if ((*a)->value < (*a)->next->next->value)
+			return (sa(a));
+		return (ra(a));
+	}
+	else
+	{
+		if ((*a)->value > (*a)->next->next->value)
+			return /*(rra(a))*/;
+		else
+			return (sa(a), ra(a));
+	}
 }
 
 void	ft_cost_sort(t_stack **a, t_stack **b)
 {
-	size_t	cheapest;
-
-	pb(a, b);
-	pb(a, b);
-	while(ft_stacklen(*a) > 3)
+	if (ft_stacklen(*a) == 2)
 	{
-		cheapest = ft_cheapest(*a, *b);
-		ft_push_n_place(a, b, cheapest);
+		if ((*a)->value > (*a)->next->value)
+			return (sa(a));
+		return ;
 	}
+	if (ft_stacklen(*a) == 3)
+		return(ft_sort_three(a), ft_rotate_a(a, ft_find_smallest(*a)));
+	pb(a, b);
+	if (ft_stacklen(*a) > 4)
+		pb(a, b);
+	while(ft_stacklen(*a) > 3)
+		ft_step(a, b, ft_cheapest(*a, *b));
 	ft_sort_three(a);
 	ft_push_back(a, b);
-	ft_rotate(a);
+	ft_rotate_a(a, ft_find_smallest(*a));
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void	ft_step_quicksort(t_stack **a, t_stack **b, size_t pivot)
-{
-	ft_put_pivot_down(a, pivot);
-	while ((*a)->rank != pivot)
-	{
-		if ((*a)->rank < pivot)
-			pb(a, b);
-		else
-			ra(a);
-	}
-	while ((*b))
-		pa(a, b);
-}
-
-void	ft_quicksort(t_stack **a, t_stack **b, size_t min, size_t max)
-{
-	size_t	pivot;
-
-	if (min < max)
-	{
-		pivot = (min + max) / 2;
-		if (!ft_is_pivot_sorted(*a, pivot))
-			ft_step_quicksort(a, b, pivot);
-		ft_quicksort(a, b, min, pivot);
-		ft_quicksort(a, b, pivot + 1, max);
-	}
-}
-
