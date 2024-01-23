@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:21:09 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/23 19:31:32 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/23 20:54:07 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int		main(int argc, char **argv)		//TODO refaire le makefile (header)
 	b = NULL;
 	if (ft_is_sort(a) == 0)
 		ft_cost_sort(&a, &b);
-	ft_print(a, b);
 	ft_free_stack(&a);
 	ft_free_stack(&b);
 	return (0);
