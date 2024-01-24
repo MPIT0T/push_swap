@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:55:36 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/23 19:16:54 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/24 14:34:47 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ size_t	ft_tabsize(char **tab)
 	return (i);
 }
 
-int		ft_is_in_tab(char **tab, size_t n, char *elem)
+int	ft_is_in_tab(char **tab, size_t n, char *elem)
 {
 	size_t	i;
 
@@ -50,7 +50,7 @@ int		ft_is_in_tab(char **tab, size_t n, char *elem)
 	return (0);
 }
 
-int		ft_checktab(char **tab, size_t n)
+int	ft_checktab(char **tab, size_t n)
 {
 	long	num;
 	size_t	i;
@@ -78,7 +78,7 @@ int		ft_checktab(char **tab, size_t n)
 	return (0);
 }
 
-int		ft_is_sort(t_stack *stack)
+int	ft_is_sort(t_stack *stack)
 {
 	int		prev;
 

@@ -24,8 +24,8 @@ void	ft_free_tab(char **tab)
 
 int	ft_fill_stack(char **tab, t_stack **a, size_t n)
 {
-	size_t i;
-	int tmp;
+	size_t	i;
+	int		tmp;
 	t_stack	*node;
 
 	i = 0;

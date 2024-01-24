@@ -32,11 +32,11 @@ NAME	=	push_swap
 
 CC		=	cc
 
-FLAGS	=	-g3 -Wall -Wextra -Werror -Iincludes
+FLAGS	=	-g3 -Wall -Wextra -Werror
 
 all		:	${NAME}
 
-%.o		:	%.c libft/libft.h printf/ft_printf.h includes/push_swap.h
+%.o		:	%.c libft/libft.h printf/ft_printf.h push_swap.h
 	${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}	:	${OBJS} Makefile

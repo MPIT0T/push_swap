@@ -12,10 +12,10 @@
 
 #include "ft_printf.h"
 
-int		ft_putnbr_x(unsigned int nbr, char *base)
+int	ft_putnbr_x(unsigned int nbr, char *base)
 {
 	int		x;
-	int 	y;
+	int		y;
 
 	if (nbr < 16)
 		return (ft_putchar(base[nbr]));

@@ -35,7 +35,7 @@ static int	ft_convert(char c, va_list args)
 	return (ft_putchar('%') + ft_putchar(c));
 }
 
-int		ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	size_t	i;

@@ -25,7 +25,7 @@ int		ft_putchar(int c);
 int		ft_putstr(const char *s);
 int		ft_putnbr(int n);
 int		ft_putnbr_u(unsigned int n);
-int 	ft_putnbr_x(unsigned int nbr, char *base);
+int		ft_putnbr_x(unsigned int nbr, char *base);
 int		ft_putmem(void *ptr);
 
 size_t	ft_strlen(const char *s);

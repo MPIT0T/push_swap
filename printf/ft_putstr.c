@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 11:40:18 by mpitot            #+#    #+#             */
-/*   Updated: 2023/12/15 11:58:54 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/24 14:31:41 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-int		ft_putstr(const char *s)
+int	ft_putstr(const char *s)
 {
 	if (!s)
 		return (ft_putstr("(null)"));

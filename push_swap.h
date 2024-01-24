@@ -6,15 +6,15 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:23:40 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/23 20:23:50 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/24 14:28:01 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_PUSH_SWAP_H
-# define PUSH_SWAP_PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-# include "../libft/libft.h"
-# include "../printf/ft_printf.h"
+# include "libft/libft.h"
+# include "printf/ft_printf.h"
 # include <limits.h>
 
 typedef struct s_stack
@@ -23,7 +23,7 @@ typedef struct s_stack
 	int				state;
 	size_t			rank;
 	struct s_stack	*next;
-} t_stack;
+}	t_stack;
 
 /*******************/
 /***    RULES    ***/
@@ -54,7 +54,7 @@ void	rrr(t_stack **a, t_stack **b);
 
 /*FTs*/
 long	ft_atol(const char *nptr);
-int	ft_strcmp(const char *s1, const char *s2);
+int		ft_strcmp(const char *s1, const char *s2);
 
 /*create the stacks*/
 int		ft_checktab(char **tab, size_t n);
@@ -71,7 +71,6 @@ void	ft_free_stack(t_stack **a);
 
 /*sorting*/
 int		ft_is_sort(t_stack *stack);
-
 void	ft_cost_sort(t_stack **a, t_stack **b);
 void	ft_step(t_stack **a, t_stack **b, int cheapest);
 int		ft_cheapest(t_stack *a, t_stack *b);

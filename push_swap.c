@@ -6,31 +6,14 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:21:09 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/23 20:54:07 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/24 14:23:21 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	ft_print(t_stack *a, t_stack *b)
-{
-	ft_printf("\n=A=\n");
-	while (a)
-	{
-		ft_printf("%d\n", a->value);
-		a = a->next;
-	}
-	ft_printf("\n=B=\n");
-	while (b)
-	{
-		ft_printf("%d\n", b->value);
-		b = b->next;
-	}
-	ft_printf("\n");
-}
-
-int		main(int argc, char **argv)		//TODO refaire le makefile (header)
+int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;

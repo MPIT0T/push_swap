@@ -6,13 +6,13 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:33:15 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/23 18:49:53 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/24 14:34:07 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_get_next_to(t_stack *b, int num)
+int	ft_get_next_to(t_stack *b, int num)
 {
 	int		biggest;
 	int		bigbig;
@@ -40,7 +40,7 @@ static size_t	ft_rotations_b(t_stack *b, int num)
 {
 	size_t	i;
 	int		next_to;
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	i = 0;
 	next_to = ft_get_next_to(b, num);
@@ -74,7 +74,7 @@ static size_t	ft_rotations_a(t_stack *a, int num)
 		return (ft_stacklen(a) - i);
 }
 
-int		ft_cheapest(t_stack *a, t_stack *b)
+int	ft_cheapest(t_stack *a, t_stack *b)
 {
 	int		cheapest;
 	size_t	cur_count;
@@ -85,9 +85,8 @@ int		ft_cheapest(t_stack *a, t_stack *b)
 	tmp = a;
 	while (tmp)
 	{
-		cur_count = ft_rotations_a(a, tmp->value) + ft_rotations_b(b, tmp->value) + 1;
-//		ft_printf("rot_a = %d\nrot_b = %d\ntot = %d\n", ft_rotations_a(a, tmp->value), ft_rotations_b(b, tmp->value), cur_count);
-//		ft_printf("%d\n", cur_count);
+		cur_count = ft_rotations_a(a, tmp->value)
+			+ ft_rotations_b(b, tmp->value) + 1;
 		if (cur_count <= sm_count)
 		{
 			sm_count = cur_count;
@@ -95,6 +94,5 @@ int		ft_cheapest(t_stack *a, t_stack *b)
 		}
 		tmp = tmp->next;
 	}
-//	ft_printf("%d\n", sm_count);
 	return (cheapest);
 }

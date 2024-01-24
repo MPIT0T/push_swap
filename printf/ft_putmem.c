@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:08:46 by mpitot            #+#    #+#             */
-/*   Updated: 2023/12/19 14:40:36 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/24 14:29:48 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	ft_recurs(uintptr_t n, const char *base)
 {
 	int		x;
-	int 	y;
+	int		y;
 
 	if (n < 16)
 		return (ft_putchar(base[n]));
@@ -28,10 +28,10 @@ static int	ft_recurs(uintptr_t n, const char *base)
 	return (x + y);
 }
 
-int		ft_putmem(void *ptr)
+int	ft_putmem(void *ptr)
 {
 	int		x;
-	int 	y;
+	int		y;
 
 	if (!ptr)
 		return (ft_putstr("(nil)"));

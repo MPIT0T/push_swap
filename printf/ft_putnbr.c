@@ -12,10 +12,10 @@
 
 #include "ft_printf.h"
 
-int		ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
 	int		x;
-	int 	y;
+	int		y;
 
 	if (n < 0)
 	{
