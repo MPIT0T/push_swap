@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:21:09 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/24 14:23:21 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/31 18:00:27 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 	{
-		ft_printf("Error\n");
-		return (1);
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
 	}
 	if (argc == 2)
 		a = ft_init_1arg(argv[1]);

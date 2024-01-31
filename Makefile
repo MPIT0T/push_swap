@@ -6,7 +6,7 @@
 #    By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 12:46:44 by mpitot            #+#    #+#              #
-#    Updated: 2024/01/23 20:53:12 by mpitot           ###   ########.fr        #
+#    Updated: 2024/01/31 14:32:45 by mpitot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ ft_strcmp.c				\
 calculations.c			\
 step.c
 
-OBJS	=	$(SRCS:.c=.o)
+OBJS	=	$(SRCS:%.c=${OBJ_D}%.o)
+
+OBJ_D	=	objs/
 
 HEADER	=	push_swap.h
 
@@ -36,18 +38,21 @@ FLAGS	=	-g3 -Wall -Wextra -Werror
 
 all		:	${NAME}
 
-%.o		:	%.c libft/libft.h printf/ft_printf.h push_swap.h
+${OBJS}	:	${OBJ_D}%.o: %.c libft/libft.h printf/ft_printf.h push_swap.h
 	${CC} ${FLAGS} -c $< -o $@
 
-${NAME}	:	${OBJS} Makefile
+${NAME}	:	${OBJ_D} ${OBJS} Makefile
 	make bonus -C ./libft
 	make -C ./printf
 	${CC} ${FLAGS} -o ${NAME} ${OBJS} -L./libft -lft -L./printf -lftprintf
 
+${OBJ_D}:
+	@mkdir -p ${OBJ_D}
+
 clean	:
 	make clean -C ./libft
 	make clean -C ./printf
-	rm -f ${OBJS} ${B_OBJS}
+	rm -rf ${OBJ_D}
 
 fclean	:	clean
 	make fclean -C ./libft

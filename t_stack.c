@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:06:11 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/23 14:34:55 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/31 18:30:02 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ t_stack	*ft_newelem(int value)
 	if (!node)
 		return (NULL);
 	node->value = value;
-	node->state = 0;
-	node->rank = -1;
 	node->next = NULL;
 	return (node);
 }

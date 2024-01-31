@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:26:20 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/23 20:50:54 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/01/31 18:03:24 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,15 @@ t_stack	*ft_init_1arg(char *str)
 
 	tab = ft_split(str, ' ');
 	if (!tab)
-		exit(1);		//TODO
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
 	n = ft_tabsize(tab);
 	if (ft_checktab(tab, n))
 	{
 		free(tab);
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
 	if (ft_fill_stack(tab, &a, n) == 1)
@@ -71,10 +74,13 @@ t_stack	*ft_init_narg(char **tab, size_t n)
 
 	if (ft_checktab(tab, n))
 	{
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
 	if (ft_fill_stack(tab, &a, n) == 1)
-		return (NULL);
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
 	return (a);
 }

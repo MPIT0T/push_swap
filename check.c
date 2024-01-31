@@ -12,20 +12,6 @@
 
 #include "push_swap.h"
 
-size_t	ft_get_rank(t_stack *stack)
-{
-	size_t	rank;
-
-	rank = 0;
-	while (stack)
-	{
-		if (stack->rank > rank)
-			rank = stack->rank;
-		stack = stack->next;
-	}
-	return (rank);
-}
-
 size_t	ft_tabsize(char **tab)
 {
 	size_t	i;

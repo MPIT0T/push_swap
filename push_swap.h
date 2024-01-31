@@ -20,8 +20,6 @@
 typedef struct s_stack
 {
 	int				value;
-	int				state;
-	size_t			rank;
 	struct s_stack	*next;
 }	t_stack;
 
