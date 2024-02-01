@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:00:03 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/23 16:59:36 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/02/01 15:29:36 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_rotate_a(t_stack **a, int cheapest)
 		tmp = tmp->next;
 		i++;
 	}
-	if (i < ft_stacklen(*a) / 2)
+	if (i < ft_stacklen(*a) / 2 + 1)
 	{
 		while ((*a)->value != cheapest)
 			ra(a);
@@ -50,7 +50,7 @@ void	ft_rotate_b(t_stack **b, int cheapest)
 		tmp = tmp->next;
 		i++;
 	}
-	if (i <= ft_stacklen(*b) / 2)
+	if (i <= ft_stacklen(*b) / 2 + 1)
 	{
 		while ((*b)->value != next_to)
 			rb(b);

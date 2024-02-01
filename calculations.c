@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:33:15 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/24 14:34:07 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/02/01 15:29:36 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static size_t	ft_rotations_b(t_stack *b, int num)
 		tmp = tmp->next;
 		i++;
 	}
-	if (i <= (ft_stacklen(b) / 2))
+	if (i <= (ft_stacklen(b) / 2) + 1)
 		return (i);
 	else
 		return (ft_stacklen(b) - i);
@@ -68,7 +68,7 @@ static size_t	ft_rotations_a(t_stack *a, int num)
 		tmp = tmp->next;
 		i++;
 	}
-	if (i <= ft_stacklen(a) / 2)
+	if (i <= ft_stacklen(a) / 2 + 1)
 		return (i);
 	else
 		return (ft_stacklen(a) - i);
