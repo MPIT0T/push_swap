@@ -6,7 +6,7 @@
 #    By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 12:46:44 by mpitot            #+#    #+#              #
-#    Updated: 2024/01/31 14:32:45 by mpitot           ###   ########.fr        #
+#    Updated: 2024/02/05 13:23:44 by mpitot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,25 +38,22 @@ FLAGS	=	-g3 -Wall -Wextra -Werror
 
 all		:	${NAME}
 
-${OBJS}	:	${OBJ_D}%.o: %.c libft/libft.h printf/ft_printf.h push_swap.h
+${OBJS}	:	${OBJ_D}%.o: %.c libft/libft.h push_swap.h
 	${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}	:	${OBJ_D} ${OBJS} Makefile
 	make bonus -C ./libft
-	make -C ./printf
-	${CC} ${FLAGS} -o ${NAME} ${OBJS} -L./libft -lft -L./printf -lftprintf
+	${CC} ${FLAGS} -o ${NAME} ${OBJS} -L./libft -lft
 
 ${OBJ_D}:
 	@mkdir -p ${OBJ_D}
 
 clean	:
 	make clean -C ./libft
-	make clean -C ./printf
 	rm -rf ${OBJ_D}
 
 fclean	:	clean
 	make fclean -C ./libft
-	make fclean -C ./printf
 	rm -f ${NAME}
 
 re		:	fclean all

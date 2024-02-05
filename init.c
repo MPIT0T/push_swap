@@ -6,21 +6,12 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:26:20 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/31 18:03:24 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/02/05 13:24:57 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_free_tab(char **tab)
-{
-	size_t	i;
-
-	i = 0;
-	while (tab[i])
-		free(tab[i++]);
-	free(tab);
-}
 
 int	ft_fill_stack(char **tab, t_stack **a, size_t n)
 {
