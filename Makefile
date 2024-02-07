@@ -6,7 +6,7 @@
 #    By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 12:46:44 by mpitot            #+#    #+#              #
-#    Updated: 2024/02/05 13:23:44 by mpitot           ###   ########.fr        #
+#    Updated: 2024/02/07 15:05:12 by mpitot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ NAME	=	push_swap
 
 CC		=	cc
 
-FLAGS	=	-g3 -Wall -Wextra -Werror
+FLAGS	=	-Wall -Wextra -Werror
 
 all		:	${NAME}
 
