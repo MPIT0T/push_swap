@@ -6,7 +6,7 @@
 #    By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 12:46:44 by mpitot            #+#    #+#              #
-#    Updated: 2024/02/09 13:49:35 by mpitot           ###   ########.fr        #
+#    Updated: 2024/02/12 16:07:16 by mpitot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ all		:
 	@make --no-print-directory bonus -C libft/
 	@make --no-print-directory ${NAME}
 
-${OBJS}	:	${OBJ_D}%.o: ${SRC_D}%.c libft/libft.h ${HEAD}
+${OBJS}	:	${OBJ_D}%.o: ${SRC_D}%.c libft/libft.h includes/push_swap.h
 	${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}	:	${OBJ_D} ${OBJS} Makefile
@@ -52,11 +52,11 @@ ${OBJ_D}:
 	@mkdir -p ${OBJ_D}
 
 clean	:
-	make clean -C ./libft
+	@make --no-print-directory clean -C ./libft
 	rm -rf ${OBJ_D}
 
 fclean	:	clean
-	make fclean -C ./libft
+	@make --no-print-directory fclean -C ./libft
 	rm -f ${NAME}
 
 re		:	fclean all
