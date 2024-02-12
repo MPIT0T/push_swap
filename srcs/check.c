@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:55:36 by mpitot            #+#    #+#             */
-/*   Updated: 2024/02/12 19:14:28 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/02/12 19:21:20 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_checktab(char **tab, size_t n)
 	while (i < n)
 	{
 		j = 0;
-		if (tab[i][j] == '-' || tab[i][j] == '+')
+		if ((tab[i][j] == '-' || tab[i][j] == '+') && ft_strlen(tab[i]) != 1)
 			j++;
 		while (tab[i][j])
 		{

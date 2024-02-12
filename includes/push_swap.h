@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:23:40 by mpitot            #+#    #+#             */
-/*   Updated: 2024/02/12 18:57:33 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/02/12 19:14:28 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/incs/libft.h"
+//# include <stdio.h>
 
 typedef struct s_stack
 {
