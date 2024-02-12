@@ -6,25 +6,11 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:31:38 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/24 14:24:34 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/02/09 13:06:53 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_find_smallest(t_stack *a)
-{
-	int		smallest;
-
-	smallest = INT_MAX;
-	while (a)
-	{
-		if (a->value < smallest)
-			smallest = a->value;
-		a = a->next;
-	}
-	return (smallest);
-}
 
 int	ft_get_position(t_stack *a, int num)
 {
@@ -57,43 +43,49 @@ void	ft_push_back(t_stack **a, t_stack **b)
 	while ((*b))
 	{
 		next_to = ft_get_position(*a, (*b)->value);
-		while ((*a)->value != next_to)
-			rra(a);
+		ft_rotate_a(a, next_to);
 		pa(a, b);
 	}
 }
 
-void	ft_sort_three(t_stack **a)
+void	ft_sort_three(t_stack **x)
 {
-	if (ft_is_sort(*a))
+	if ((*x)->value > (*x)->next->value)
+	{
+		if ((*x)->next->value > (*x)->next->next->value)
+			return (sa(x), rra(x));
+		if ((*x)->value > (*x)->next->next->value)
+			return (ra(x));
+		return (sa(x));
+	}
+	if ((*x)->next->value < (*x)->next->next->value)
 		return ;
-	if ((*a)->value > (*a)->next->value)
-	{
-		if ((*a)->next->value > (*a)->next->next->value)
-			return (sa(a), rra(a));
-		if ((*a)->value < (*a)->next->next->value)
-			return (sa(a));
-		return (ra(a));
-	}
-	else
-	{
-		if ((*a)->value > (*a)->next->next->value)
-			return ;
-		else
-			return (sa(a), ra(a));
-	}
+	if ((*x)->value > (*x)->next->next->value)
+		return (rra(x));
+	return (rra(x), sa(x));
+}
+
+void	ft_sort_five(t_stack **a, t_stack **b)
+{
+	while ((*a)->value != ft_find_smallest(*a))
+		ft_rotate_a(a, ft_find_smallest(*a));
+	pb(a, b);
+	while ((*a)->value != ft_find_smallest(*a))
+		ft_rotate_a(a, ft_find_smallest(*a));
+	pb(a, b);
+	ft_sort_three(a);
+	pa(a, b);
+	pa(a, b);
 }
 
 void	ft_cost_sort(t_stack **a, t_stack **b)
 {
 	if (ft_stacklen(*a) == 2)
-	{
-		if ((*a)->value > (*a)->next->value)
-			return (sa(a));
-		return ;
-	}
+		return (sa(a));
 	if (ft_stacklen(*a) == 3)
-		return (ft_sort_three(a), ft_rotate_a(a, ft_find_smallest(*a)));
+		return (ft_sort_three(a));
+	if (ft_stacklen(*a) == 5)
+		return (ft_sort_five(a, b));
 	pb(a, b);
 	if (ft_stacklen(*a) > 4)
 		pb(a, b);

@@ -24,7 +24,7 @@ void	ft_rotate_a(t_stack **a, int cheapest)
 		tmp = tmp->next;
 		i++;
 	}
-	if (i < ft_stacklen(*a) / 2 + 1)
+	if (i < ft_stacklen(*a) / 2)
 	{
 		while ((*a)->value != cheapest)
 			ra(a);
@@ -50,7 +50,7 @@ void	ft_rotate_b(t_stack **b, int cheapest)
 		tmp = tmp->next;
 		i++;
 	}
-	if (i <= ft_stacklen(*b) / 2 + 1)
+	if (i <= ft_stacklen(*b) / 2)
 	{
 		while ((*b)->value != next_to)
 			rb(b);

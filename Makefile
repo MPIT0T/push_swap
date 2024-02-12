@@ -6,7 +6,7 @@
 #    By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 12:46:44 by mpitot            #+#    #+#              #
-#    Updated: 2024/02/07 15:05:12 by mpitot           ###   ########.fr        #
+#    Updated: 2024/02/09 13:49:35 by mpitot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,23 +26,26 @@ step.c
 
 OBJS	=	$(SRCS:%.c=${OBJ_D}%.o)
 
+SRC_D	=	srcs/
+
 OBJ_D	=	objs/
 
-HEADER	=	push_swap.h
+HEAD	=	includes/
 
 NAME	=	push_swap
 
 CC		=	cc
 
-FLAGS	=	-Wall -Wextra -Werror
+FLAGS	=	-Wall -Wextra -Werror -Iincludes
 
-all		:	${NAME}
+all		:
+	@make --no-print-directory bonus -C libft/
+	@make --no-print-directory ${NAME}
 
-${OBJS}	:	${OBJ_D}%.o: %.c libft/libft.h push_swap.h
+${OBJS}	:	${OBJ_D}%.o: ${SRC_D}%.c libft/libft.h ${HEAD}
 	${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}	:	${OBJ_D} ${OBJS} Makefile
-	make bonus -C ./libft
 	${CC} ${FLAGS} -o ${NAME} ${OBJS} -L./libft -lft
 
 ${OBJ_D}:

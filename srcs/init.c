@@ -6,12 +6,11 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:26:20 by mpitot            #+#    #+#             */
-/*   Updated: 2024/02/05 13:24:57 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/02/08 22:52:26 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	ft_fill_stack(char **tab, t_stack **a, size_t n)
 {
@@ -50,7 +49,7 @@ t_stack	*ft_init_1arg(char *str)
 	n = ft_tabsize(tab);
 	if (ft_checktab(tab, n))
 	{
-		free(tab);
+		ft_free_tab(tab);
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}

@@ -81,7 +81,7 @@ ${NAME}	:	${OBJS} Makefile
 	${AR} ${NAME} ${OBJS}
 
 bonus	:
-	@make SRCS="${SRCS} ${BNS}"
+	@make ${NAME} SRCS="${SRCS} ${BNS}"
 
 clean	:
 	rm -f ${OBJS} ${B_OBJS}

@@ -6,11 +6,25 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:33:15 by mpitot            #+#    #+#             */
-/*   Updated: 2024/02/01 15:29:36 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/02/09 13:10:14 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_find_smallest(t_stack *x)
+{
+	int		smallest;
+
+	smallest = INT_MAX;
+	while (x)
+	{
+		if (x->value < smallest)
+			smallest = x->value;
+		x = x->next;
+	}
+	return (smallest);
+}
 
 int	ft_get_next_to(t_stack *b, int num)
 {
@@ -50,7 +64,7 @@ static size_t	ft_rotations_b(t_stack *b, int num)
 		tmp = tmp->next;
 		i++;
 	}
-	if (i <= (ft_stacklen(b) / 2) + 1)
+	if (i <= (ft_stacklen(b) / 2))
 		return (i);
 	else
 		return (ft_stacklen(b) - i);
@@ -68,7 +82,7 @@ static size_t	ft_rotations_a(t_stack *a, int num)
 		tmp = tmp->next;
 		i++;
 	}
-	if (i <= ft_stacklen(a) / 2 + 1)
+	if (i <= ft_stacklen(a) / 2)
 		return (i);
 	else
 		return (ft_stacklen(a) - i);

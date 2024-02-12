@@ -6,14 +6,14 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:23:40 by mpitot            #+#    #+#             */
-/*   Updated: 2024/01/24 14:28:01 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/02/09 13:00:52 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <limits.h>
 
 typedef struct s_stack
@@ -65,6 +65,7 @@ t_stack	*ft_newelem(int value);
 void	ft_stackadd_back(t_stack **stack, t_stack *new);
 size_t	ft_stacklen(t_stack *stack);
 void	ft_free_stack(t_stack **a);
+int		ft_find_smallest(t_stack *x);
 
 /*sorting*/
 int		ft_is_sort(t_stack *stack);
@@ -74,6 +75,6 @@ int		ft_cheapest(t_stack *a, t_stack *b);
 int		ft_get_next_to(t_stack *b, int num);
 void	ft_rotate_a(t_stack **a, int cheapest);
 
-void	ft_print(t_stack *a, t_stack *b);
+void	print_list(t_stack *a, t_stack *b);
 
 #endif
