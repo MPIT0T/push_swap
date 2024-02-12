@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:26:20 by mpitot            #+#    #+#             */
-/*   Updated: 2024/02/08 22:52:26 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/02/12 19:15:20 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	ft_fill_stack(char **tab, t_stack **a, size_t n)
 	while (i < n)
 	{
 		tmp = ft_atoi(tab[i++]);
+		if (ft_is_in_tab(*a, tmp))
+			return (ft_free_stack(a), 1);
 		node = ft_newelem(tmp);
 		if (!node)
 			return (ft_free_stack(a), 1);

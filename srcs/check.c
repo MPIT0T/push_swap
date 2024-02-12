@@ -6,7 +6,7 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:55:36 by mpitot            #+#    #+#             */
-/*   Updated: 2024/02/09 13:10:14 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/02/12 19:14:28 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,13 @@ size_t	ft_tabsize(char **tab)
 	return (i);
 }
 
-int	ft_is_in_tab(char **tab, size_t n, char *elem)
+int	ft_is_in_tab(t_stack *stack, int num)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < n)
+	while (stack)
 	{
-		if (ft_strcmp(tab[i], elem) == 0)
+		if (stack->value == num)
 			return (1);
-		i++;
+		stack = stack->next;
 	}
 	return (0);
 }
@@ -46,7 +43,7 @@ int	ft_checktab(char **tab, size_t n)
 	while (i < n)
 	{
 		j = 0;
-		if (tab[i][j] == '-')
+		if (tab[i][j] == '-' || tab[i][j] == '+')
 			j++;
 		while (tab[i][j])
 		{
@@ -56,8 +53,6 @@ int	ft_checktab(char **tab, size_t n)
 		}
 		num = ft_atol(tab[i]);
 		if (num > (long) INT_MAX || num < (long) INT_MIN)
-			return (1);
-		if (ft_is_in_tab(&tab[i + 1], n - i - 1, tab[i]))
 			return (1);
 		i++;
 	}

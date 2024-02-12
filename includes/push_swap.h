@@ -6,15 +6,14 @@
 /*   By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:23:40 by mpitot            #+#    #+#             */
-/*   Updated: 2024/02/09 13:00:52 by mpitot           ###   ########.fr       */
+/*   Updated: 2024/02/12 18:57:33 by mpitot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../../Libft/libft.h"
-# include <limits.h>
+# include "../libft/incs/libft.h"
 
 typedef struct s_stack
 {
@@ -56,6 +55,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 /*create the stacks*/
 int		ft_checktab(char **tab, size_t n);
 size_t	ft_tabsize(char **tab);
+int		ft_is_in_tab(t_stack *stack, int num);
 t_stack	*ft_init_narg(char **tab, size_t n);
 t_stack	*ft_init_1arg(char *str);
 
