@@ -6,7 +6,7 @@
 #    By: mpitot <mpitot@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 12:46:44 by mpitot            #+#    #+#              #
-#    Updated: 2024/02/12 19:14:28 by mpitot           ###   ########.fr        #
+#    Updated: 2024/02/13 19:57:29 by mpitot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,10 +52,16 @@ ${OBJ_D}:
 	@mkdir -p ${OBJ_D}
 
 clean	:
+	@echo "libft :"
 	@make --no-print-directory clean -C ./libft
+	@echo "push_swap :"
 	rm -rf ${OBJ_D}
 
-fclean	:	clean
+fclean	:
+	@echo "libft :"
+	@make --no-print-directory fclean -C ./libft
+	@echo "push_swap :"
+	rm -rf ${OBJ_D}
 	rm -f ${NAME}
 
 re		:	fclean all
