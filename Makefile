@@ -42,10 +42,10 @@ all		:
 	@make --no-print-directory bonus -C libft/
 	@make --no-print-directory ${NAME}
 
-${OBJS}	:	${OBJ_D}%.o: ${SRC_D}%.c libft/incs/libft.h includes/push_swap.h
+${OBJS}	:	${OBJ_D}%.o: ${SRC_D}%.c libft/incs/libft.h includes/push_swap.h libft/libft.a
 	${CC} ${FLAGS} -c $< -o $@
 
-${NAME}	:	${OBJ_D} ${OBJS} Makefile libft/libft.a
+${NAME}	:	${OBJ_D} ${OBJS} Makefile libft/incs/libft.h includes/push_swap.h
 	${CC} ${FLAGS} -o ${NAME} ${OBJS} -L./libft -lft
 
 ${OBJ_D}:
